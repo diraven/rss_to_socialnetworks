@@ -1,3 +1,5 @@
+from utils.settings import RSS_URL
+
 __author__ = 'diraven'
 
 import time
@@ -13,7 +15,7 @@ try:
 except AttributeError:
     pass
 
-feed = feedparser.parse("http://mmomoc.pl/rss/")
+feed = feedparser.parse(RSS_URL)
 for entry in reversed(feed.entries):
     post_datetime = parser.parse(entry.published)
     if not last_post_datetime or last_post_datetime < post_datetime:
