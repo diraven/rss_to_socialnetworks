@@ -4,3 +4,7 @@
 # python
 *.py[cod]
 venv
+
+# project
+data.db
+utils/settings.py
