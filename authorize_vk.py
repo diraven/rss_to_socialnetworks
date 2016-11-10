@@ -25,3 +25,8 @@ try:
 
 except IndexError:
     raise BaseException("Unable to parse url, url format is incorrect.")
+
+page_id = raw_input("Input the Page ID you want to post to: ")
+db.set('vk_page_id', int(page_id))
+db.dump()
+print("Page ID saved.")
