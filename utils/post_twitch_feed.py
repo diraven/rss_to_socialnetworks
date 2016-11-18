@@ -2,6 +2,7 @@ import requests
 
 from utils.db import db
 from utils.html2text_processor import html2text_processor
+from utils.settings import TWITCH_CHANNEL_NAME
 
 twitch_access_token = db.get('twitch_access_token')
 if not twitch_access_token:
@@ -12,7 +13,8 @@ if not twitch_access_token:
 
 def post_twitch_feed(rss_entry):
     response = requests.post(
-        'https://api.twitch.tv/kraken/feed/diraven/posts?oauth_token={}'.format(
+        'https://api.twitch.tv/kraken/feed/{}/posts?oauth_token={}'.format(
+            TWITCH_CHANNEL_NAME,
             twitch_access_token
         ),
         headers={
