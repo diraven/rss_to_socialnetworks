@@ -1,8 +1,9 @@
+facebook-sdk==2.0.0
 feedparser==5.2.1
-html2text==2016.1.8
+html2text==2016.9.19
 pickleDB==0.6.2
-python-dateutil==2.5.1
-requests==2.9.1
-simplejson==3.8.2
+python-dateutil==2.6.0
+requests==2.12.4
+simplejson==3.10.0
 six==1.10.0
 vk==2.0.2

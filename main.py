@@ -1,4 +1,5 @@
 from utils.post_twitch_feed import post_twitch_feed
+from utils.post_vk import post_vk
 
 __author__ = 'diraven'
 

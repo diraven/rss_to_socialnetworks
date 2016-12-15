@@ -15,7 +15,7 @@ USER_AUTH_URL = 'https://api.twitch.tv/kraken/oauth2/authorize?' \
 )
 print(USER_AUTH_URL)
 
-oauth_url = raw_input("Copypaste the url you have arrived at: ")
+oauth_url = input("Copypaste the url you have arrived at: ")
 
 try:
     db.set(
