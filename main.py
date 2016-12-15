@@ -19,7 +19,7 @@ feed = feedparser.parse(RSS_URL)
 for entry in reversed(feed.entries):
     post_datetime = parser.parse(entry.published)
     if not last_post_datetime or last_post_datetime < post_datetime:
-        # post_vk(entry)
+        post_vk(entry)
         # post_fb(entry)
         post_twitch_feed(entry)
 
