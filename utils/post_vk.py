@@ -1,4 +1,4 @@
-from io import StringIO
+from io import BytesIO
 
 import requests
 from utils.db import db
@@ -17,7 +17,7 @@ def post_vk(rss_entry):
 
     attachments = []
     for url in [link.href for link in rss_entry.links if 'image' in link.type]:
-        image = StringIO(requests.get(url).content)
+        image = BytesIO(requests.get(url).content)
         r = requests.post(
             photo_upload_url,
             files={
@@ -32,7 +32,7 @@ def post_vk(rss_entry):
         attachments.append(upload_result[0]['id'])
     attachments.append(rss_entry.link)
 
-    api_vk.wall.post(
+    api_vk.wall.post(owner_id=-db.get('vk_page_id'),
         message=u"{title}\r\n\r\n"
                 u"{message}".format(title=rss_entry.title, message=html2text_processor.handle(rss_entry.summary)),
         attachments=','.join(attachments)
