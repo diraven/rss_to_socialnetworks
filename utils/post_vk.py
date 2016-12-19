@@ -13,23 +13,23 @@ api_vk = vk.API(session)
 
 
 def post_vk(rss_entry):
-    photo_upload_url = api_vk.photos.getWallUploadServer()['upload_url']
+    # photo_upload_url = api_vk.photos.getWallUploadServer()['upload_url']
 
     attachments = []
-    for url in [link.href for link in rss_entry.links if 'image' in link.type]:
-        image = BytesIO(requests.get(url).content)
-        r = requests.post(
-            photo_upload_url,
-            files={
-                'photo': ('image.jpg', image)
-            },
-        )
-        upload_result = api_vk.photos.saveWallPhoto(
-            photo=r.json()['photo'],
-            server=r.json()['server'],
-            hash=r.json()['hash']
-        )
-        attachments.append(upload_result[0]['id'])
+    # for url in [link.href for link in rss_entry.links if 'image' in link.type]:
+    #     image = BytesIO(requests.get(url).content)
+    #     r = requests.post(
+    #         photo_upload_url,
+    #         files={
+    #             'photo': ('image.jpg', image)
+    #         },
+    #     )
+    #     upload_result = api_vk.photos.saveWallPhoto(
+    #         photo=r.json()['photo'],
+    #         server=r.json()['server'],
+    #         hash=r.json()['hash']
+    #     )
+    #     attachments.append(upload_result[0]['id'])
     attachments.append(rss_entry.link)
 
     api_vk.wall.post(
