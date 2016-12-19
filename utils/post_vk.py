@@ -32,7 +32,9 @@ def post_vk(rss_entry):
         attachments.append(upload_result[0]['id'])
     attachments.append(rss_entry.link)
 
-    api_vk.wall.post(owner_id=-db.get('vk_page_id'),
+    api_vk.wall.post(
+        owner_id=-db.get('vk_page_id'),
+        from_group=1,
         message=u"{title}\r\n\r\n"
                 u"{message}".format(title=rss_entry.title, message=html2text_processor.handle(rss_entry.summary)),
         attachments=','.join(attachments)
