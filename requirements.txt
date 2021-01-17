@@ -2,7 +2,7 @@ facebook-sdk==2.0.0
 feedparser==5.2.1
 html2text==2016.9.19
 python-dateutil==2.6.0
-requests==2.12.4
+requests==2.20.0
 simplejson==3.10.0
 six==1.10.0
 vk==2.0.2
